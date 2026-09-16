@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Threshold — a quiet place to ask about Islam</title>
+<meta name="description" content="Guided answers for people who feel there must be a God, and gentle first steps for new Muslims — with a real companion behind every question.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Amiri:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F4F0; --paper:#FBFBF9; --ink:#1E2629; --ink-2:#4E5B60; --ink-3:#8A969A;
+  --line:#DCE0DB; --accent:#1E5A6B; --accent-ink:#FFFFFF; --gold:#9A7A2E; --gold-soft:#F1EAD6;
+  --soft:#E7ECE8;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141A1C; --paper:#1C2326; --ink:#ECEEE9; --ink-2:#B4BDBF; --ink-3:#7E898C;
+  --line:#2E393D; --accent:#6FB4C6; --accent-ink:#0F1E23; --gold:#D3B15C; --gold-soft:#2A2618;
+  --soft:#232C2F;
+}}
+:root[data-theme="dark"]{
+  --bg:#141A1C; --paper:#1C2326; --ink:#ECEEE9; --ink-2:#B4BDBF; --ink-3:#7E898C;
+  --line:#2E393D; --accent:#6FB4C6; --accent-ink:#0F1E23; --gold:#D3B15C; --gold-soft:#2A2618;
+  --soft:#232C2F;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Newsreader",Georgia,"Times New Roman",serif;font-size:19px;line-height:1.6;min-height:100vh}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+a{color:var(--accent)}
+.ar{font-family:"Amiri","Scheherazade New","Traditional Arabic",serif;direction:rtl;font-size:1.55em;line-height:1.9;text-align:right}
+.ui{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px}
+.app{max-width:640px;margin:0 auto;padding:20px 20px 96px}
+header.top{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0 24px}
+header.top .brand{font-weight:500;font-size:18px;letter-spacing:.01em}
+header.top .brand span{color:var(--ink-3);font-weight:300}
+.lang{color:var(--ink-3);font-size:14px}
+.lang select{font:inherit;color:inherit;background:transparent;border:0;border-bottom:1px solid var(--line);padding:2px 0}
+
+/* screens */
+.screen{display:none}.screen.on{display:block}
+h1{font-weight:300;font-size:36px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
+h2{font-weight:400;font-size:26px;line-height:1.25;margin:32px 0 10px}
+h3{font-weight:500;font-size:19px;margin:24px 0 6px}
+p{margin:0 0 16px}
+.lede{color:var(--ink-2);font-size:21px;font-weight:300}
+.muted{color:var(--ink-3)}
+.small{font-size:15px}
+
+/* entry statements: the one memorable element */
+.statements{list-style:none;margin:36px 0 0;padding:0;border-top:1px solid var(--line)}
+.statements li{border-bottom:1px solid var(--line)}
+.statements button{display:block;width:100%;text-align:left;padding:22px 0;font-size:24px;font-weight:300;line-height:1.3;font-style:italic;color:var(--ink)}
+.statements button:hover,.statements button:focus-visible{color:var(--accent);outline:none;padding-left:8px;transition:padding .18s}
+[dir=rtl] .statements button{text-align:right}
+
+/* reading path */
+.path-head{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.dots{display:flex;gap:6px}
+.dots i{width:22px;height:3px;background:var(--line);border-radius:2px}
+.dots i.done{background:var(--accent)}
+.verse{border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin:26px 0}
+[dir=rtl] .verse{border-left:0;border-right:3px solid var(--gold);padding:6px 18px 6px 0}
+.verse .ar{margin-bottom:10px;color:var(--ink)}
+.verse .tr{font-size:20px;font-style:italic;color:var(--ink)}
+.verse .ref{font-size:14px;color:var(--ink-3);font-family:"Inter",system-ui,sans-serif;margin-top:6px}
+.nav-row{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+.btn{font-family:"Inter",system-ui,sans-serif;font-size:15px;font-weight:500;padding:12px 18px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.quiet{border-color:transparent;color:var(--ink-2)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.end-choices{display:grid;gap:10px;margin-top:28px}
+.end-choices .btn{text-align:left;padding:16px 18px;border-radius:14px;background:var(--paper)}
+.tag{display:inline-block;font-family:"Inter",system-ui,sans-serif;font-size:12px;color:var(--gold);background:var(--gold-soft);padding:3px 9px;border-radius:999px;vertical-align:middle}
+
+/* questions */
+.search{width:100%;font:inherit;font-size:19px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);margin:18px 0 8px}
+.search:focus{outline:2px solid var(--accent);border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 20px}
+.chip{font-family:"Inter",system-ui,sans-serif;font-size:14px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+details.q{border-top:1px solid var(--line);padding:6px 0}
+details.q summary{cursor:pointer;list-style:none;padding:12px 0;font-size:21px;font-weight:400;line-height:1.3}
+details.q summary::-webkit-details-marker{display:none}
+details.q[open] summary{color:var(--accent)}
+details.q .a{padding:0 0 18px;color:var(--ink-2)}
+.notfound{margin-top:28px;padding:20px;border-radius:16px;background:var(--paper);border:1px dashed var(--line)}
+textarea{width:100%;font:inherit;font-size:17px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);min-height:90px;resize:vertical}
+
+/* journey */
+.lessons{list-style:none;margin:20px 0 0;padding:0}
+.lessons li{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
+.lessons li:last-child{border-bottom:1px solid var(--line)}
+.lessons .n{font-family:"Inter",system-ui,sans-serif;font-size:13px;color:var(--ink-3);min-width:22px;padding-top:6px}
+.lessons .t{flex:1}
+.lessons .t b{font-weight:500;display:block}
+.lessons .t span{color:var(--ink-3);font-size:16px}
+.lessons .t.locked{color:var(--ink-3)}
+.check{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:14px;margin-top:3px;flex:none}
+.check.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.progress{height:4px;background:var(--line);border-radius:2px;margin:14px 0 4px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+
+/* quran */
+.ayah{padding:18px 0;border-top:1px solid var(--line)}
+.ayah .ar{margin-bottom:8px}
+.ayah .tr{font-size:20px;font-style:italic}
+.ayah .note{font-size:16px;color:var(--ink-2);margin-top:6px}
+.surah-pick{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+
+/* companion & dashboard */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+table{width:100%;border-collapse:collapse;font-family:"Inter",system-ui,sans-serif;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink-3);font-weight:500}
+.tbl{overflow-x:auto}
+.stage{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--soft);font-size:12px}
+.stage.s1{color:var(--accent)} .stage.s3{color:var(--gold)}
+
+/* bottom tabs */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);padding:6px 0 max(8px,env(safe-area-inset-bottom))}
+nav.tabs div{max-width:640px;margin:0 auto;display:flex}
+nav.tabs button{flex:1;font-family:"Inter",system-ui,sans-serif;font-size:12px;color:var(--ink-3);padding:8px 2px 4px;display:flex;flex-direction:column;align-items:center;gap:3px}
+nav.tabs button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs button.on{color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-family:"Inter",system-ui,sans-serif;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media (max-width:420px){h1{font-size:30px}.statements button{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">Threshold <span>· prototype</span></div>
+    <label class="lang">Language <select id="langSel"><option value="en">English</option><option value="ar" disabled>العربية (soon)</option></select></label>
+  </header>
+
+  <!-- ENTRY -->
+  <section class="screen on" id="s-home">
+    <h1 id="home-title"></h1>
+    <p class="lede" id="home-lede"></p>
+    <ul class="statements" id="statements"></ul>
+    <p class="muted small" style="margin-top:28px" id="home-foot"></p>
+  </section>
+
+  <!-- READING PATH -->
+  <section class="screen" id="s-path">
+    <div class="path-head">
+      <button class="btn quiet" id="path-back">‹ Back</button>
+      <div class="dots" id="path-dots"></div>
+    </div>
+    <div id="path-body"></div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="screen" id="s-questions">
+    <h1>Honest questions</h1>
+    <p class="lede">The things people actually wonder about Islam, answered without defensiveness.</p>
+    <input class="search" id="q-search" type="search" placeholder="Search — try “hell”, “women”, “Jesus”, “violence”…" aria-label="Search questions">
+    <div class="chips" id="q-chips"></div>
+    <div id="q-list"></div>
+    <div class="notfound">
+      <h3 style="margin-top:0">Didn’t find your question?</h3>
+      <p class="small muted">Send it to your companion. Real person, real answer — usually within a day or two.</p>
+      <textarea id="q-text" placeholder="Write it the way you’d say it to a friend."></textarea>
+      <div style="margin-top:10px"><button class="btn primary" id="q-send">Send to my companion</button></div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="screen" id="s-journey">
+    <h1>First steps</h1>
+    <p class="lede">One small thing at a time. Nobody is expected to know all of this on day one.</p>
+    <div class="progress"><i id="j-bar"></i></div>
+    <p class="small muted" id="j-count"></p>
+    <ul class="lessons" id="lessons"></ul>
+    <div id="lesson-view"></div>
+  </section>
+
+  <!-- QURAN -->
+  <section class="screen" id="s-quran">
+    <h1>The Qur’an</h1>
+    <p class="lede">Arabic, a plain English rendering, and a line of context. Start with what you’ll say in prayer.</p>
+    <div class="surah-pick" id="surah-pick"></div>
+    <div id="surah-body"></div>
+  </section>
+
+  <!-- COMPANION -->
+  <section class="screen" id="s-companion">
+    <h1>Your companion</h1>
+    <p class="lede">Every person here is connected to one real human who walks with them.</p>
+    <div class="card">
+      <h3>Yusuf A.</h3>
+      <p class="small muted">Your companion since you joined. Speaks English and Arabic. Lives in Manchester.</p>
+      <p class="small">“Ask me anything — the questions you think are too small, and the ones you think are too big.”</p>
+    </div>
+    <h3>Ask something</h3>
+    <textarea id="c-text" placeholder="Nothing is a stupid question."></textarea>
+    <div style="margin-top:10px"><button class="btn primary" id="c-send">Send</button></div>
+    <h3>Your recent messages</h3>
+    <div class="card small"><b>You:</b> Do I have to change my name?<br><b class="muted">Yusuf:</b> No. Only if your name means something that contradicts belief in one God. “Sarah”, “David”, “Maria” are all names of believers in the Qur’an’s story.</div>
+    <p class="muted small" style="margin-top:32px"><button class="btn quiet" id="open-dash">Team view (for companions & admin) ›</button></p>
+  </section>
+
+  <!-- DASHBOARD (companion / admin mock) -->
+  <section class="screen" id="s-dash">
+    <button class="btn quiet" id="dash-back">‹ Back</button>
+    <h1 style="margin-top:12px">Companion dashboard</h1>
+    <p class="lede">Who you’re walking with, where they are, and who needs a nudge.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Person</th><th>Stage</th><th>Last active</th><th>Open questions</th><th></th></tr></thead>
+      <tbody id="dash-rows"></tbody>
+    </table></div>
+    <h2>Questions people couldn’t find</h2>
+    <p class="small muted">Sent from the “didn’t find your question” box. The ones that repeat become new answers in the library.</p>
+    <div class="card small">“Can I still celebrate Christmas with my parents?” <span class="tag">asked 4×</span></div>
+    <div class="card small">“What do I do if I can’t read Arabic yet — is my prayer valid?” <span class="tag">asked 3×</span></div>
+    <h2>Admin</h2>
+    <div class="card small"><b>Companions (5)</b> — added by the administrator only. Each companion gets invite codes to hand to the people they’re guiding.<br><span class="muted">Yusuf A. · Amina K. · Bilal R. · Hana S. · Omar T.</span></div>
+  </section>
+</div>
+
+<nav class="tabs" aria-label="Sections"><div>
+  <button data-tab="home" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Start</button>
+  <button data-tab="questions"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></svg>Questions</button>
+  <button data-tab="journey"><svg viewBox="0 0 24 24"><path d="M4 19c4-1 6-4 6-8s2-7 10-7c-1 8-4 12-10 12-2 0-4 1-6 3z"/></svg>First steps</button>
+  <button data-tab="quran"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 7h8M8 11h8M8 15h5"/></svg>Qur’an</button>
+  <button data-tab="companion"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Companion</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   CONTENT — one object per language. Adding a language = copying
+   CONTENT.en, translating, and setting dir: "rtl" if needed.
+   ============================================================ */
+const CONTENT = { en: {
+  dir: "ltr",
+  home: {
+    title: "Which of these sounds like you?",
+    lede: "You don’t need to believe anything to be here. Pick the sentence closest to where you are, and we’ll start there.",
+    foot: "Everything you read here was written and reviewed by people, not generated. Behind every question is a real companion.",
+    statements: [
+      { id:"near",     text:"I believe in God, but He feels far away and I don’t know how to reach Him." },
+      { id:"left",     text:"I still believe in God — I just stopped believing in my religion." },
+      { id:"answers",  text:"The faith I grew up with doesn’t answer my questions anymore." },
+      { id:"truth",    text:"I’m looking for what’s true and I don’t know where to begin." },
+      { id:"curious",  text:"I met Muslims, and something about them made me curious." }
+    ]
+  },
+  paths: {
+    near: {
+      title: "God is near",
+      screens: [
+        { h:"You were never supposed to need a middleman.",
+          p:["Many people who grew up in a church were taught, gently or not, that God is reached through someone else: a priest, a saint, a confession booth, a sacrifice made on their behalf. When that structure stops feeling true, God can feel like He left with it.",
+             "The Qur’an describes something very different. When people asked the Prophet Muhammad ﷺ whether God was far or near, the answer came in one verse — and God speaks in the first person, with no one standing in between."],
+          verse:{ ar:"وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ", tr:"And when My servants ask you about Me — I am near. I answer the call of the one who calls on Me.", ref:"Qur’an 2:186" } },
+        { h:"Closer than you are to yourself.",
+          p:["Nearness here isn’t a mood you have to work yourself into. It’s a description of how things already are. There is no distance to close — only attention to turn."],
+          verse:{ ar:"وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ", tr:"And We are closer to him than his jugular vein.", ref:"Qur’an 50:16" },
+          p2:["So when a Muslim prays, there is no altar and no intermediary. You speak, in your own language if you like, and you are heard. That is the whole arrangement."] },
+        { h:"He meets you more than halfway.",
+          p:["One of the most loved sayings of the Prophet ﷺ reports God describing His own response to a person who turns toward Him:"],
+          verse:{ ar:"وَمَنْ تَقَرَّبَ إِلَيَّ شِبْرًا تَقَرَّبْتُ إِلَيْهِ ذِرَاعًا، وَمَنْ تَقَرَّبَ إِلَيَّ ذِرَاعًا تَقَرَّبْتُ إِلَيْهِ بَاعًا، وَمَنْ أَتَانِي يَمْشِي أَتَيْتُهُ هَرْوَلَةً", tr:"Whoever draws near to Me by a hand’s span, I draw near to him by an arm’s length; whoever draws near by an arm’s length, I draw near by a fathom; and whoever comes to Me walking, I come to him running.", ref:"Hadith Qudsi — al-Bukhari & Muslim" },
+          p2:["Read it again slowly. It doesn’t say “once you are good enough.” It says: take one step."] },
+        { h:"And forgiveness doesn’t go through anyone either.",
+          p:["If you carry the sense that you are already too far gone, this verse was addressed directly to people who felt exactly that:"],
+          verse:{ ar:"قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا", tr:"Say: O My servants who have gone to excess against themselves — do not despair of God’s mercy. God forgives all sins.", ref:"Qur’an 39:53" },
+          p2:["No confession to a person. No ritual price. You turn, He turns. Muslims call this tawbah, and it’s available at any hour, for as long as you are alive."] },
+        { h:"What this feeling was.",
+          p:["The ache you described — that God is real but out of reach — is, in Islam’s view, not a sign that something is wrong with you. It’s a sign that something in you still works. Islam calls it the fitrah: the original disposition every human is born with, which knows its Maker and keeps reaching for Him even when the road it was given leads elsewhere.",
+             "You don’t need to fix the feeling. You need to follow it."],
+          end:true }
+      ]
+    },
+    left: { title:"Still believing in God", draft:true, screens:[
+      { h:"Leaving a religion is not the same as leaving God.", p:["Most people who leave don’t stop believing in God. They stop believing that God is as they were told: angry, distant, needing blood to forgive, or divided into parts. The Qur’an names those exact ideas — and says they were never God’s.","This path (draft) will show what Islam says God is like, and what He is not, in five short readings."], end:true } ] },
+    answers: { title:"Questions your faith couldn’t answer", draft:true, screens:[
+      { h:"The questions were never the problem.", p:["Why would a just God punish someone for a sin they didn’t commit? Why would God need to become a man to forgive? Why does the book I was given contradict itself? These are not rebellious questions. They are the questions the Qur’an itself puts to its readers.","This path (draft) will take the five most common ones and give you the Qur’an’s own answer to each."], end:true } ] },
+    truth: { title:"Where to begin", draft:true, screens:[
+      { h:"Start with the one question every religion must answer.", p:["Who is God? Not what should I eat, not how should I pray — first: who is the One I would be praying to? Islam’s answer fits in four lines, and it is the shortest chapter a Muslim child memorises.","This path (draft) walks through those four lines, then the prophets, then what happens after death — in that order, because that order matters."], end:true } ] },
+    curious: { title:"Why they seemed different", draft:true, screens:[
+      { h:"What you probably noticed.", p:["People often describe the same things: a certain steadiness, five pauses in the day that nothing interrupts, a way of speaking about death that isn’t afraid. None of that is personality. It comes from a very specific picture of God and of what a human life is for.","This path (draft) shows that picture — and lets you decide whether it explains what you saw."], end:true } ] }
+  },
+  questions: {
+    cats: ["All","God","Jesus & the prophets","Women","Violence & the news","Hell & judgement","Daily life"],
+    items: [
+      { c:"Jesus & the prophets", q:"Do Muslims believe in Jesus?", kw:"jesus isa mary maryam christ prophet virgin", a:"Yes — and a Muslim who didn’t would not be a Muslim. The Qur’an calls Jesus the Messiah, affirms his virgin birth, his miracles by God’s permission, and names an entire chapter after his mother, Mary. What Muslims do not believe is that he was God or God’s son, or that he died for anyone’s sins. He is loved as one of the greatest of God’s messengers." },
+      { c:"Jesus & the prophets", q:"Why do Muslims say ‘all the prophets’ — which ones?", kw:"prophets moses abraham noah david messengers bible", a:"Adam, Noah, Abraham, Moses, David, Jesus and many others are named in the Qur’an. The Qur’an says God sent a messenger to every nation. Muslims are commanded to make no distinction between them in belief — rejecting one is rejecting all. Muhammad ﷺ is the last, not the only." },
+      { c:"God", q:"Isn’t ‘Allah’ a different God from the God of the Bible?", kw:"allah god same different arabic name", a:"‘Allah’ is simply the Arabic word for God — Arabic-speaking Christians and Jews use it too, and it appears in Arabic Bibles. The Qur’an says explicitly that the God of Muslims is the God of Abraham, Moses and Jesus. The disagreement is not about which God, but about what He is like." },
+      { c:"God", q:"Does God love people, or only judge them?", kw:"love mercy compassion rahman rahim anger wrath", a:"Every chapter of the Qur’an but one opens with two names of God that both mean mercy. A saying of the Prophet ﷺ reports God writing above His throne: ‘My mercy prevails over My anger.’ Judgement is real, but the Qur’an describes it as something God is reluctant to carry out and quick to set aside for anyone who turns back." },
+      { c:"Hell & judgement", q:"Does Islam teach that everyone who isn’t Muslim goes to hell?", kw:"hell fire salvation non-muslims damned punishment eternal", a:"The Qur’an says God does not punish anyone who never received the message clearly — and only God judges who did. Islam does teach that knowingly rejecting the truth after it becomes clear has consequences. But no Muslim is permitted to declare a specific person destined for hell; that is God’s alone." },
+      { c:"Women", q:"Why do Muslim women cover their hair?", kw:"hijab women cover hair veil oppression modesty", a:"Because the Qur’an asks it of them — the same way it asks men to lower their gaze and dress modestly. Many Muslim women describe it as the opposite of being reduced to their appearance. Whether a particular woman wears it is between her and God; no one may force her, and the Qur’an forbids compulsion in religion." },
+      { c:"Violence & the news", q:"Doesn’t the Qur’an tell Muslims to kill non-believers?", kw:"violence kill terrorism jihad war verses fighting", a:"The verses about fighting were revealed during specific wars, against people who had expelled Muslims from their homes and attacked them, and they sit next to verses commanding peace the moment the other side stops. The Qur’an states that killing one innocent person is like killing all of humanity. Terrorism is condemned by every mainstream Muslim scholar." },
+      { c:"Daily life", q:"If I became Muslim, would I have to change my name or cut off my family?", kw:"name change family parents christmas convert relationships", a:"No and no. You keep your name unless it means something contrary to belief in one God. And the Qur’an commands kindness to parents even when they don’t share your faith — it names this specifically. Most new Muslims find their relationship with their family gets more patient, not less." },
+      { c:"Daily life", q:"What actually changes on day one?", kw:"day one what changes first steps after shahada", a:"Less than you think. You say one sentence, sincerely, in front of witnesses. Then you learn to wash and pray — that’s the first month. Food and clothing adjust gradually. Nobody expects you to know Arabic, memorise anything, or be perfect. Your companion’s job is to make sure you’re never overwhelmed." }
+    ]
+  },
+  journey: {
+    lessons: [
+      { t:"What you said, and what it means", s:"The Shahadah in plain English — four minutes", body:"<p>You said: <em>There is no god but God, and Muhammad is His messenger.</em></p><p>The first half is a refusal and an embrace at once. It refuses every claim on your worship except One — money, fear, other people’s approval, and every idea of God that isn’t God. It embraces the One who was always there.</p><p>The second half means: I trust the man He sent to show me how. Not because he was divine — he wasn’t — but because he was truthful, and what he brought is the last message.</p><p>That sentence is the whole religion. Everything else is learning how to live it.</p>" },
+      { t:"Washing before prayer (wudu)", s:"Hands, mouth, nose, face, arms, head, ears, feet", body:"<p>Wudu takes about a minute. Water only, and the order matters. Your companion will show you in person or on a call — it’s much easier watched than read.</p><p>Wash: hands to the wrists · rinse the mouth · sniff and blow the nose · the face · arms to the elbows · wipe the head and ears · feet to the ankles. Each three times except the head.</p><p>You keep it until you use the bathroom, pass wind, or sleep deeply.</p>" },
+      { t:"Your first prayer", s:"The shape of salah, and what to say when you don’t know Arabic yet", body:"<p>Stand, bow, prostrate, sit. That’s the whole shape. Five times a day, and yes, at the start you will do it slowly with a card in front of you — everyone did.</p><p>Until you’ve memorised al-Fatihah, scholars allow you to say <em>Subhan Allah, Alhamdulillah, Allahu Akbar</em> in its place. Your prayer counts. Nobody is waiting for you to be fluent.</p>" },
+      { t:"The five daily times", s:"Dawn, midday, afternoon, sunset, night — and how to find them", body:"<p>Prayer times follow the sun, so they move through the year. Any prayer-times app for your city will show them. Start with what you can manage and add one at a time; your companion will tell you the order most people find easiest.</p>" },
+      { t:"What to eat, what to skip", s:"Pork, alcohol, and the word ‘halal’", locked:true },
+      { t:"Friday", s:"Your first visit to a mosque", locked:true },
+      { t:"Ramadan", s:"When it comes, how to fast, and what it is for", locked:true },
+      { t:"Giving", s:"Zakah — what it is, and whether it applies to you yet", locked:true }
+    ]
+  },
+  quran: {
+    surahs: [
+      { n:"Al-Fatihah — The Opening", why:"The seven verses said in every unit of prayer. Learn this first.", ayat:[
+        { ar:"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", tr:"In the name of God, the Most Merciful, the Ever-Merciful.", note:"Two names of mercy before anything else is said." },
+        { ar:"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ", tr:"All praise belongs to God, Lord of all worlds.", note:"Not ‘Lord of the Arabs’ or of Muslims — of everything that exists." },
+        { ar:"الرَّحْمَٰنِ الرَّحِيمِ", tr:"The Most Merciful, the Ever-Merciful.", note:"Repeated. The Qur’an wants this to be the first thing you associate with Him." },
+        { ar:"مَالِكِ يَوْمِ الدِّينِ", tr:"Master of the Day of Judgement.", note:"Mercy first, then accountability — in that order." },
+        { ar:"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ", tr:"You alone we worship, and You alone we ask for help.", note:"The centre of the chapter. Worship and help — both go only to Him." },
+        { ar:"اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ", tr:"Guide us to the straight path.", note:"A request, not a claim. Even the Prophet ﷺ asked for it daily." },
+        { ar:"صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ", tr:"The path of those You have blessed — not of those who earned anger, nor of those who went astray.", note:"Two ways to lose the path: knowing and refusing, or never seeking to know." }
+      ]},
+      { n:"Al-Ikhlas — Sincerity", why:"Four verses. Islam’s entire description of who God is.", ayat:[
+        { ar:"قُلْ هُوَ اللَّهُ أَحَدٌ", tr:"Say: He is God, the One.", note:"Not one-in-three. One." },
+        { ar:"اللَّهُ الصَّمَدُ", tr:"God, the Eternal Refuge.", note:"Everything needs Him; He needs nothing." },
+        { ar:"لَمْ يَلِدْ وَلَمْ يُولَدْ", tr:"He neither begets nor was He begotten.", note:"No son, no father, no beginning." },
+        { ar:"وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ", tr:"And there is nothing comparable to Him.", note:"No image of Him can be right, so Muslims make none." }
+      ]},
+      { n:"The servants of the Merciful — al-Furqan 63–64", why:"A portrait of the person you are walking toward. One trait a week.", ayat:[
+        { ar:"وَعِبَادُ الرَّحْمَٰنِ الَّذِينَ يَمْشُونَ عَلَى الْأَرْضِ هَوْنًا وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَامًا", tr:"The servants of the Merciful are those who walk the earth gently, and when the ignorant address them, they say: peace.", note:"This week: one conversation where you choose gentleness over winning." },
+        { ar:"وَالَّذِينَ يَبِيتُونَ لِرَبِّهِمْ سُجَّدًا وَقِيَامًا", tr:"And those who spend part of the night before their Lord, prostrating and standing.", note:"Not all night. Part. Two extra units of prayer before bed count." }
+      ]}
+    ]
+  },
+  dash: [
+    { p:"Daniel M.", s:1, st:"Seeking", last:"Today", open:1 },
+    { p:"Claire B.", s:2, st:"At the threshold", last:"3 days ago", open:2 },
+    { p:"Marcus L.", s:3, st:"New Muslim — week 6", last:"Yesterday", open:0 },
+    { p:"Sofia R.", s:3, st:"New Muslim — week 2", last:"9 days ago ⚠", open:1 },
+    { p:"Tom W.", s:1, st:"Seeking", last:"Today", open:0 }
+  ]
+}};
+
+/* ============================================================
+   APP
+   ============================================================ */
+let lang = "en", L = CONTENT[lang];
+const $ = s => document.querySelector(s);
+const show = id => { document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on")); $("#s-"+id).classList.add("on"); window.scrollTo({top:0}); };
+const setTab = t => { document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===t)); };
+const toast = m => { const t=$("#toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); };
+const store = { get(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }, set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} } };
+
+document.querySelectorAll("nav.tabs button").forEach(b=>b.addEventListener("click",()=>{ setTab(b.dataset.tab); show(b.dataset.tab); }));
+
+/* HOME */
+function renderHome(){
+  document.documentElement.dir = L.dir;
+  $("#home-title").textContent = L.home.title; $("#home-lede").textContent = L.home.lede; $("#home-foot").textContent = L.home.foot;
+  $("#statements").innerHTML = L.home.statements.map(s=>`<li><button data-path="${s.id}">${s.text}</button></li>`).join("");
+  $("#statements").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>openPath(b.dataset.path)));
+}
+
+/* PATH */
+let cur = { id:null, i:0 };
+function openPath(id){ cur={id,i:0}; renderPath(); show("path"); }
+function renderPath(){
+  const P = L.paths[cur.id], s = P.screens[cur.i], n = P.screens.length;
+  $("#path-dots").innerHTML = P.screens.map((_,k)=>`<i class="${k<=cur.i?'done':''}"></i>`).join("");
+  let html = `<p class="muted small">${P.title}${P.draft?' <span class="tag">draft</span>':''}</p><h1>${s.h}</h1>`;
+  html += (s.p||[]).map(x=>`<p>${x}</p>`).join("");
+  if(s.verse) html += `<div class="verse"><div class="ar">${s.verse.ar}</div><div class="tr">${s.verse.tr}</div><div class="ref">${s.verse.ref}</div></div>`;
+  html += (s.p2||[]).map(x=>`<p>${x}</p>`).join("");
+  if(s.end || cur.i===n-1){
+    html += `<div class="end-choices">
+      <button class="btn" data-go="more">I want to read more</button>
+      <button class="btn" data-go="ask">I have a question</button>
+      <button class="btn primary" data-go="next">What’s the next step?</button></div>`;
+  } else {
+    html += `<div class="nav-row"><span class="muted small">${cur.i+1} of ${n}</span><button class="btn primary" data-go="fwd">Continue</button></div>`;
+  }
+  $("#path-body").innerHTML = html;
+  $("#path-body").querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{
+    const g=b.dataset.go;
+    if(g==="fwd"){ cur.i++; renderPath(); window.scrollTo({top:0}); }
+    if(g==="more"){ setTab("home"); show("home"); }
+    if(g==="ask"){ setTab("companion"); show("companion"); }
+    if(g==="next"){ setTab("questions"); show("questions"); }
+  }));
+}
+$("#path-back").addEventListener("click",()=>{ if(cur.i>0){cur.i--;renderPath();} else { setTab("home"); show("home"); } });
+
+/* QUESTIONS — on-device search, keywords + synonyms, no server */
+let qcat = "All";
+const SYN = { hell:"fire punishment", god:"allah", jesus:"isa christ", women:"woman female girl hijab", war:"violence fighting jihad", family:"parents", convert:"become muslim revert" };
+function norm(s){ s=s.toLowerCase(); Object.entries(SYN).forEach(([k,v])=>{ if(s.includes(k)) s+=" "+v; }); return s; }
+function renderQ(){
+  $("#q-chips").innerHTML = L.questions.cats.map(c=>`<button class="chip ${c===qcat?'on':''}">${c}</button>`).join("");
+  $("#q-chips").querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{ qcat=b.textContent; renderQ(); }));
+  const term = norm($("#q-search").value||"").split(/\s+/).filter(w=>w.length>2);
+  const items = L.questions.items.filter(it=>{
+    if(qcat!=="All" && it.c!==qcat) return false;
+    if(!term.length) return true;
+    const hay = norm(it.q+" "+it.kw+" "+it.a);
+    return term.some(w=>hay.includes(w));
+  });
+  $("#q-list").innerHTML = items.length ? items.map(it=>`<details class="q"><summary>${it.q}</summary><div class="a"><p class="muted small" style="margin-bottom:6px">${it.c}</p>${it.a}</div></details>`).join("")
+    : `<p class="muted">Nothing matched. Try a different word, or send it below.</p>`;
+}
+$("#q-search").addEventListener("input",renderQ);
+$("#q-send").addEventListener("click",()=>{ if(!$("#q-text").value.trim()) return toast("Write your question first"); $("#q-text").value=""; toast("Sent to Yusuf. He’ll reply here."); });
+
+/* JOURNEY */
+function renderJ(){
+  const done = store.get("lessons-done",[]);
+  const total = L.journey.lessons.filter(l=>!l.locked).length;
+  $("#j-bar").style.width = Math.round(100*done.length/L.journey.lessons.length)+"%";
+  $("#j-count").textContent = `${done.length} of ${L.journey.lessons.length} steps — ${total} open now, the rest unlock as you go.`;
+  $("#lessons").innerHTML = L.journey.lessons.map((l,i)=>`<li>
+    <span class="n">${i+1}</span>
+    <button class="t ${l.locked?'locked':''}" data-i="${i}"><b>${l.t}</b><span>${l.locked?'Unlocks after your companion checks in':l.s}</span></button>
+    ${l.locked?'':`<button class="check ${done.includes(i)?'on':''}" data-done="${i}" aria-label="Mark done">${done.includes(i)?'✓':''}</button>`}
+  </li>`).join("");
+  $("#lessons").querySelectorAll("[data-i]").forEach(b=>b.addEventListener("click",()=>{ const l=L.journey.lessons[b.dataset.i]; if(l.locked) return toast("Your companion opens this when you’re ready"); $("#lesson-view").innerHTML=`<div class="card"><h3>${l.t}</h3>${l.body}</div>`; $("#lesson-view").scrollIntoView({behavior:"smooth"}); }));
+  $("#lessons").querySelectorAll("[data-done]").forEach(b=>b.addEventListener("click",()=>{ const i=+b.dataset.done; const d=store.get("lessons-done",[]); const k=d.indexOf(i); k<0?d.push(i):d.splice(k,1); store.set("lessons-done",d); renderJ(); }));
+}
+
+/* QURAN */
+let sIdx = 0;
+function renderQuran(){
+  $("#surah-pick").innerHTML = L.quran.surahs.map((s,i)=>`<button class="chip ${i===sIdx?'on':''}" data-s="${i}">${s.n.split(" — ")[0]}</button>`).join("");
+  $("#surah-pick").querySelectorAll("[data-s]").forEach(b=>b.addEventListener("click",()=>{ sIdx=+b.dataset.s; renderQuran(); }));
+  const S = L.quran.surahs[sIdx];
+  $("#surah-body").innerHTML = `<h2>${S.n}</h2><p class="muted">${S.why}</p>` + S.ayat.map(a=>`<div class="ayah"><div class="ar">${a.ar}</div><div class="tr">${a.tr}</div><div class="note">${a.note}</div></div>`).join("");
+}
+
+/* COMPANION & DASH */
+$("#c-send").addEventListener("click",()=>{ if(!$("#c-text").value.trim()) return toast("Write something first"); $("#c-text").value=""; toast("Sent. Yusuf usually replies within a day."); });
+$("#open-dash").addEventListener("click",()=>{ renderDash(); show("dash"); });
+$("#dash-back").addEventListener("click",()=>{ setTab("companion"); show("companion"); });
+function renderDash(){
+  $("#dash-rows").innerHTML = L.dash.map(r=>`<tr><td>${r.p}</td><td><span class="stage s${r.s}">${r.st}</span></td><td>${r.last}</td><td>${r.open||'—'}</td><td><button class="btn quiet" style="padding:4px 8px" onclick="toast('Opens ${r.p.split(' ')[0]}’s page')">Open</button></td></tr>`).join("");
+}
+
+/* boot */
+renderHome(); renderQ(); renderJ(); renderQuran();
+</script>
+</body>
+</html>
