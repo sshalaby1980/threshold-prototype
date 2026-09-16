@@ -118,6 +118,60 @@ th{color:var(--ink-3);font-weight:500}
 .stage{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--soft);font-size:12px}
 .stage.s1{color:var(--accent)} .stage.s3{color:var(--gold)}
 
+
+/* dashboard */
+.dash{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px}
+.dash h1{font-family:"Newsreader",Georgia,serif}
+.dash h2{font-family:"Newsreader",Georgia,serif;font-size:22px;margin:28px 0 8px}
+.dash h3{font-size:14px;font-weight:500;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 8px}
+.dash p{font-size:15px}
+.dash .card{padding:14px 16px}
+.dash input,.dash select,.dash textarea{font-family:inherit;font-size:15px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.dash textarea{min-height:64px}
+.dash label{display:block;font-size:13px;color:var(--ink-3);margin:10px 0 4px}
+.dash .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dash .btn{padding:8px 14px;font-size:14px}
+.dash .btn.sm{padding:4px 10px;font-size:13px}
+.dash .top-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;font-weight:500;font-family:"Newsreader",Georgia,serif}
+.kpi span{font-size:12px;color:var(--ink-3)}
+.kpi.warn b{color:var(--gold)}
+.attn{border-left:3px solid var(--gold)}
+.plist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.plist li{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.plist li:hover{background:var(--paper)}
+.plist .av{width:36px;height:36px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:500;flex:none;color:var(--accent)}
+.plist .who{flex:1;min-width:0}
+.plist .who b{font-weight:500;display:block}
+.plist .who span{font-size:13px;color:var(--ink-3);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.plist .meta{text-align:right;font-size:12px;color:var(--ink-3);flex:none}
+.flag{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-left:6px;vertical-align:middle}
+.stage.s2{color:var(--ink-2)} .stage.s4{color:#3E7A4E}
+.stepper{display:flex;gap:4px;margin:10px 0 4px}
+.stepper button{flex:1;padding:8px 4px;font-size:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink-3);border-radius:8px}
+.stepper button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.stepper button.done{color:var(--accent);border-color:var(--accent)}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.tl .d{color:var(--ink-3);min-width:78px;font-size:12px;padding-top:2px}
+.tl .k{font-size:11px;color:var(--gold);background:var(--gold-soft);padding:1px 7px;border-radius:999px;margin-right:6px}
+.qi{padding:10px 0;border-bottom:1px solid var(--line)}
+.qi .q{font-weight:500}
+.qi .a{color:var(--ink-2);margin-top:4px;font-size:14px}
+.qi .acts{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.needs{list-style:none;margin:0;padding:0}
+.needs li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.needs li span{flex:1}
+.needs .st{font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--ink-3);cursor:pointer;min-width:74px;text-align:center}
+.needs .st.doing{color:var(--gold);border-color:var(--gold)}
+.needs .st.done{color:var(--accent);border-color:var(--accent);background:var(--soft)}
+.badge{display:inline-block;min-width:18px;padding:0 6px;border-radius:999px;background:var(--gold);color:#fff;font-size:11px;text-align:center;line-height:18px}
+.tabs2{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}
+.tabs2 .chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+@media (max-width:520px){.kpis{grid-template-columns:repeat(2,1fr)}.dash .row{grid-template-columns:1fr}}
+
 /* bottom tabs */
 nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);padding:6px 0 max(8px,env(safe-area-inset-bottom))}
 nav.tabs div{max-width:640px;margin:0 auto;display:flex}
@@ -204,21 +258,19 @@ nav.tabs button.on{color:var(--accent)}
     <p class="muted small" style="margin-top:32px"><button class="btn quiet" id="open-dash">Team view (for companions & admin) ›</button></p>
   </section>
 
-  <!-- DASHBOARD (companion / admin mock) -->
-  <section class="screen" id="s-dash">
-    <button class="btn quiet" id="dash-back">‹ Back</button>
-    <h1 style="margin-top:12px">Companion dashboard</h1>
-    <p class="lede">Who you’re walking with, where they are, and who needs a nudge.</p>
-    <div class="tbl"><table>
-      <thead><tr><th>Person</th><th>Stage</th><th>Last active</th><th>Open questions</th><th></th></tr></thead>
-      <tbody id="dash-rows"></tbody>
-    </table></div>
-    <h2>Questions people couldn’t find</h2>
-    <p class="small muted">Sent from the “didn’t find your question” box. The ones that repeat become new answers in the library.</p>
-    <div class="card small">“Can I still celebrate Christmas with my parents?” <span class="tag">asked 4×</span></div>
-    <div class="card small">“What do I do if I can’t read Arabic yet — is my prayer valid?” <span class="tag">asked 3×</span></div>
-    <h2>Admin</h2>
-    <div class="card small"><b>Companions (5)</b> — added by the administrator only. Each companion gets invite codes to hand to the people they’re guiding.<br><span class="muted">Yusuf A. · Amina K. · Bilal R. · Hana S. · Omar T.</span></div>
+  <!-- DASHBOARD (companion / admin) -->
+  <section class="screen dash" id="s-dash">
+    <div class="top-row">
+      <button class="btn quiet" id="dash-back">‹ Back to app</button>
+      <div class="tabs2" id="dash-tabs" style="margin:0">
+        <button class="chip on" data-dv="people">My people</button>
+        <button class="chip" data-dv="team">Team &amp; admin</button>
+      </div>
+    </div>
+    <div id="dv-people"></div>
+    <div id="dv-person" style="display:none"></div>
+    <div id="dv-add" style="display:none"></div>
+    <div id="dv-team" style="display:none"></div>
   </section>
 </div>
 
@@ -333,14 +385,7 @@ const CONTENT = { en: {
         { ar:"وَالَّذِينَ يَبِيتُونَ لِرَبِّهِمْ سُجَّدًا وَقِيَامًا", tr:"And those who spend part of the night before their Lord, prostrating and standing.", note:"Not all night. Part. Two extra units of prayer before bed count." }
       ]}
     ]
-  },
-  dash: [
-    { p:"Daniel M.", s:1, st:"Seeking", last:"Today", open:1 },
-    { p:"Claire B.", s:2, st:"At the threshold", last:"3 days ago", open:2 },
-    { p:"Marcus L.", s:3, st:"New Muslim — week 6", last:"Yesterday", open:0 },
-    { p:"Sofia R.", s:3, st:"New Muslim — week 2", last:"9 days ago ⚠", open:1 },
-    { p:"Tom W.", s:1, st:"Seeking", last:"Today", open:0 }
-  ]
+  }
 }};
 
 /* ============================================================
@@ -410,7 +455,7 @@ function renderQ(){
     : `<p class="muted">Nothing matched. Try a different word, or send it below.</p>`;
 }
 $("#q-search").addEventListener("input",renderQ);
-$("#q-send").addEventListener("click",()=>{ if(!$("#q-text").value.trim()) return toast("Write your question first"); $("#q-text").value=""; toast("Sent to Yusuf. He’ll reply here."); });
+$("#q-send").addEventListener("click",()=>{ const t=$("#q-text").value.trim(); if(!t) return toast("Write your question first"); inboxAdd(t,"app"); $("#q-text").value=""; toast("Sent to Yusuf. He’ll reply here."); });
 
 /* JOURNEY */
 function renderJ(){
@@ -437,11 +482,250 @@ function renderQuran(){
 }
 
 /* COMPANION & DASH */
-$("#c-send").addEventListener("click",()=>{ if(!$("#c-text").value.trim()) return toast("Write something first"); $("#c-text").value=""; toast("Sent. Yusuf usually replies within a day."); });
-$("#open-dash").addEventListener("click",()=>{ renderDash(); show("dash"); });
+$("#c-send").addEventListener("click",()=>{ const t=$("#c-text").value.trim(); if(!t) return toast("Write something first"); inboxAdd(t,"companion"); $("#c-text").value=""; toast("Sent. Yusuf usually replies within a day."); });
+$("#open-dash").addEventListener("click",()=>{ dashView("people"); show("dash"); });
 $("#dash-back").addEventListener("click",()=>{ setTab("companion"); show("companion"); });
-function renderDash(){
-  $("#dash-rows").innerHTML = L.dash.map(r=>`<tr><td>${r.p}</td><td><span class="stage s${r.s}">${r.st}</span></td><td>${r.last}</td><td>${r.open||'—'}</td><td><button class="btn quiet" style="padding:4px 8px" onclick="toast('Opens ${r.p.split(' ')[0]}’s page')">Open</button></td></tr>`).join("");
+$("#dash-tabs").querySelectorAll("[data-dv]").forEach(b=>b.addEventListener("click",()=>dashView(b.dataset.dv)));
+
+/* ---------- data model (device-only in this prototype) ---------- */
+const STAGES = { 1:"Seeking", 2:"At the threshold", 3:"New Muslim", 4:"Settled" };
+const CHANNELS = ["WhatsApp","Telegram","Phone","Email","In person"];
+const NEED_CATALOG = {
+  1:[ ["talk","A first unhurried conversation"], ["quran-en","An English Qur’an to read"], ["fitrah","Answer the ‘is there a God’ questions"], ["mosque-visit","Visit a mosque"] ],
+  2:[ ["doubts","Work through their specific doubts"], ["jesus","Jesus and Mary in the Qur’an"], ["meet-muslims","Meet Muslims in person"], ["family-talk","Prepare for the family conversation"], ["shahada-prep","Explain what saying the shahada means"] ],
+  3:[ ["wudu","Teach wudu and prayer"], ["times","Prayer-times app and qibla"], ["jumuah","First Friday prayer, accompanied"], ["halal","Halal food guidance"], ["work","Praying at work or school"], ["family","Support with family reaction"], ["name","Name and paperwork (only if they ask)"], ["friend","A Muslim friend of the same gender nearby"] ],
+  4:[ ["ramadan","Ramadan preparation"], ["quran-study","Regular Qur’an study"], ["community","A role in the community"], ["marriage","Marriage / relationship guidance"] ]
+};
+const MILESTONES = [ ["firstContact","First contact"], ["shahada","Shahada"], ["firstPrayer","First prayer"], ["firstJumuah","First Friday prayer"], ["firstRamadan","First Ramadan"] ];
+const COMPANIONS = ["Yusuf A.","Amina K.","Bilal R.","Hana S.","Omar T."];
+const ME = "Yusuf A.";
+const today = () => new Date().toISOString().slice(0,10);
+const daysAgo = n => { const d=new Date(); d.setDate(d.getDate()-n); return d.toISOString().slice(0,10); };
+const uid = () => Math.random().toString(36).slice(2,8);
+const code = () => "TH-"+Math.random().toString(36).slice(2,6).toUpperCase();
+const rel = iso => { if(!iso) return "—"; const d=Math.round((new Date(today())-new Date(iso))/86400000); return d<=0?"Today":d===1?"Yesterday":d<7?`${d} days ago`:d<30?`${Math.round(d/7)} wk ago`:`${Math.round(d/30)} mo ago`; };
+const esc = s => String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function seedPeople(){
+  const mk = (name,stage,opts) => Object.assign({ id:uid(), name, stage, companion:ME, lang:"English", city:"Toronto", channel:"WhatsApp", met:"", bg:"", notes:"", code:code(), created:daysAgo(40), contacts:[], questions:[], needs:{}, milestones:{}, next:{text:"",due:""}, unlocked:[0,1,2,3] }, opts);
+  return [
+    mk("Daniel M.",1,{ city:"Toronto", met:"Neighbour", bg:"Raised Catholic, left the church", created:daysAgo(12),
+      contacts:[{d:daysAgo(12),k:"Met",t:"Long chat over coffee. Believes in God, angry at the church, not at God."},{d:daysAgo(0),k:"Message",t:"Sent him the ‘God is near’ path. He replied within the hour."}],
+      questions:[{id:uid(),d:daysAgo(2),q:"If God is merciful, why does He need to be worshipped?",status:"open"}],
+      needs:{talk:"done","quran-en":"doing",fitrah:"doing"}, milestones:{firstContact:daysAgo(12)}, next:{text:"Give him the English Qur’an — start with Maryam",due:daysAgo(-3)} }),
+    mk("Claire B.",2,{ city:"Mississauga", channel:"Telegram", met:"Friend of Amina’s wife", bg:"Anglican, reads a lot", created:daysAgo(60),
+      contacts:[{d:daysAgo(3),k:"Call",t:"45 min on the crucifixion. She said: ‘I need to sit with this.’"},{d:daysAgo(10),k:"Message",t:"Asked for Aal Imran 33–74 audio. Sent."}],
+      questions:[{id:uid(),d:daysAgo(3),q:"Why would God let people believe the wrong thing about Jesus for 600 years?",status:"open"},{id:uid(),d:daysAgo(9),q:"Do Muslims believe Mary was sinless?",status:"answered",a:"Yes — the Qur’an calls her chosen and purified above the women of the worlds (3:42).",lib:true}],
+      needs:{doubts:"doing",jesus:"doing","meet-muslims":"done","family-talk":"todo","shahada-prep":"todo"}, milestones:{firstContact:daysAgo(60)}, next:{text:"Invite her to Hana’s sisters’ circle on Saturday",due:daysAgo(1)} }),
+    mk("Marcus L.",3,{ city:"Toronto", channel:"Phone", met:"Came to the mosque open day", bg:"No religion", created:daysAgo(42),
+      contacts:[{d:daysAgo(1),k:"In person",t:"Prayed Maghrib together. Wudu is solid now; still unsure about the sitting position."},{d:daysAgo(8),k:"In person",t:"First Jumu’ah. Sat with him through the khutbah."}],
+      questions:[{id:uid(),d:daysAgo(5),q:"Can I keep my dog?",status:"answered",a:"Yes — keeping a dog for guarding or as an existing pet is allowed; keep it out of the prayer space and wash if it licks you.",lib:false}],
+      needs:{wudu:"done",times:"done",jumuah:"done",halal:"doing",work:"doing",family:"todo",friend:"done"}, milestones:{firstContact:daysAgo(42),shahada:daysAgo(42),firstPrayer:daysAgo(41),firstJumuah:daysAgo(8)}, next:{text:"Unlock ‘Fasting’ lesson before Ramadan talk",due:daysAgo(-5)}, unlocked:[0,1,2,3,4,5] }),
+    mk("Sofia R.",3,{ city:"Hamilton", channel:"WhatsApp", met:"Via her colleague (Hana)", bg:"Lapsed Catholic", created:daysAgo(16),
+      contacts:[{d:daysAgo(9),k:"Message",t:"Said her mother took it badly. Went quiet after."}],
+      questions:[{id:uid(),d:daysAgo(9),q:"Can I still celebrate Christmas with my parents?",status:"open"}],
+      needs:{wudu:"doing",times:"done",jumuah:"todo",halal:"todo",work:"todo",family:"doing",friend:"todo"}, milestones:{firstContact:daysAgo(16),shahada:daysAgo(14)}, next:{text:"Check in — she has gone quiet",due:daysAgo(2)} }),
+    mk("Tom W.",1,{ city:"Ottawa", channel:"Email", met:"Wrote to the mosque website", bg:"Agnostic, engineer", created:daysAgo(5),
+      contacts:[{d:daysAgo(0),k:"Email",t:"Sent the five statements. He picked ‘I’m looking for what’s true’."}],
+      needs:{talk:"todo"}, milestones:{firstContact:daysAgo(5)}, next:{text:"Offer a call this week",due:daysAgo(-2)} }),
+    mk("Priya N.",4,{ city:"Toronto", companion:"Amina K.", channel:"In person", met:"Amina’s neighbour", bg:"Hindu family", created:daysAgo(400),
+      contacts:[{d:daysAgo(20),k:"In person",t:"Ramadan planning. She wants to host an iftar for her parents."}],
+      needs:{ramadan:"doing","quran-study":"done",community:"doing"}, milestones:{firstContact:daysAgo(400),shahada:daysAgo(330),firstPrayer:daysAgo(329),firstJumuah:daysAgo(320),firstRamadan:daysAgo(200)}, next:{text:"Help with the iftar for her parents",due:daysAgo(-10)}, unlocked:[0,1,2,3,4,5,6,7] })
+  ];
+}
+let PEOPLE = store.get("th.people", null); if(!PEOPLE){ PEOPLE = seedPeople(); store.set("th.people",PEOPLE); }
+const savePeople = () => store.set("th.people",PEOPLE);
+const inboxAdd = (q,from) => { const ib=store.get("th.inbox",[]); ib.unshift({d:today(),q,from}); store.set("th.inbox",ib); };
+const personOf = id => PEOPLE.find(p=>p.id===id);
+const openQs = p => p.questions.filter(q=>q.status==="open").length;
+const lastContact = p => p.contacts.map(c=>c.d).sort().reverse()[0] || p.created;
+const quietDays = p => Math.round((new Date(today())-new Date(lastContact(p)))/86400000);
+const overdue = p => p.next.due && p.next.due < today();
+const attention = p => quietDays(p)>=7 || openQs(p)>0 || overdue(p);
+const initials = n => n.split(" ").map(w=>w[0]).join("").slice(0,2);
+
+/* ---------- views ---------- */
+let dv = "people", curP = null, pfilter = "All";
+function dashView(v, id){
+  dv=v; if(id) curP=id;
+  ["people","person","add","team"].forEach(k=>$("#dv-"+k).style.display = k===v?"block":"none");
+  $("#dash-tabs").querySelectorAll("[data-dv]").forEach(b=>b.classList.toggle("on", b.dataset.dv===(v==="team"?"team":"people")));
+  ({people:renderPeople, person:renderPerson, add:renderAdd, team:renderTeam})[v]();
+  window.scrollTo({top:0});
+}
+function renderDash(){ dashView("people"); }
+
+function renderPeople(){
+  const mine = PEOPLE.filter(p=>p.companion===ME);
+  const counts = [1,2,3,4].map(s=>mine.filter(p=>p.stage===s).length);
+  const need = mine.filter(attention);
+  const filters = ["All","Needs attention","Seeking","At the threshold","New Muslim","Settled"];
+  let list = mine.filter(p=> pfilter==="All" ? true : pfilter==="Needs attention" ? attention(p) : STAGES[p.stage]===pfilter);
+  list.sort((a,b)=> (attention(b)-attention(a)) || (lastContact(b)>lastContact(a)?1:-1));
+  $("#dv-people").innerHTML = `
+    <h1>Companion dashboard</h1>
+    <p class="muted">Who you’re walking with, where they are, and who needs a nudge.</p>
+    <div class="kpis">
+      <div class="kpi ${need.length?'warn':''}"><b>${need.length}</b><span>need attention</span></div>
+      <div class="kpi"><b>${counts[0]+counts[1]}</b><span>seeking / at threshold</span></div>
+      <div class="kpi"><b>${counts[2]}</b><span>new Muslims</span></div>
+      <div class="kpi"><b>${mine.reduce((n,p)=>n+openQs(p),0)}</b><span>open questions</span></div>
+    </div>
+    ${need.length?`<div class="card attn"><b>Today</b><ul class="tl" style="margin-top:6px">${need.map(p=>`<li><span class="d">${esc(p.name)}</span><span>${[
+        quietDays(p)>=7?`quiet for ${quietDays(p)} days`:null,
+        openQs(p)?`${openQs(p)} open question${openQs(p)>1?'s':''}`:null,
+        overdue(p)?`next step overdue: ${esc(p.next.text)}`:null].filter(Boolean).join(" · ")}</span></li>`).join("")}</ul></div>`:""}
+    <div class="top-row" style="margin-top:20px">
+      <div class="tabs2" id="pfilters" style="margin:0">${filters.map(f=>`<button class="chip ${f===pfilter?'on':''}">${f}</button>`).join("")}</div>
+      <button class="btn primary" id="p-add">+ Add person</button>
+    </div>
+    <ul class="plist">${list.map(p=>`<li data-p="${p.id}">
+      <div class="av">${initials(p.name)}</div>
+      <div class="who"><b>${esc(p.name)}${attention(p)?'<i class="flag"></i>':''}</b><span>${esc(p.next.text||p.bg||"—")}</span></div>
+      <div class="meta"><span class="stage s${p.stage}">${STAGES[p.stage]}</span><br>${rel(lastContact(p))}${openQs(p)?` · <span class="badge">${openQs(p)}</span>`:""}</div>
+    </li>`).join("") || `<li><span class="muted">No one here yet.</span></li>`}</ul>`;
+  $("#pfilters").querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{ pfilter=b.textContent; renderPeople(); }));
+  $("#p-add").addEventListener("click",()=>dashView("add"));
+  $("#dv-people").querySelectorAll("[data-p]").forEach(li=>li.addEventListener("click",()=>dashView("person",li.dataset.p)));
+}
+
+function renderAdd(){
+  $("#dv-add").innerHTML = `
+    <button class="btn quiet" id="a-back">‹ Back</button>
+    <h1 style="margin-top:12px">Add a person</h1>
+    <p class="muted">Only what you need to start. Everything else you fill in as you go.</p>
+    <div class="card">
+      <label>Name or nickname (what they’d like to be called)</label><input id="a-name" placeholder="e.g. Daniel M.">
+      <div class="row">
+        <div><label>Where are they now?</label><select id="a-stage">${Object.entries(STAGES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></div>
+        <div><label>How you keep in touch</label><select id="a-channel">${CHANNELS.map(c=>`<option>${c}</option>`).join("")}</select></div>
+      </div>
+      <div class="row">
+        <div><label>City</label><input id="a-city" placeholder="Toronto"></div>
+        <div><label>Language</label><input id="a-lang" value="English"></div>
+      </div>
+      <label>How you met</label><input id="a-met" placeholder="Neighbour · mosque open day · wrote to the website">
+      <label>Background (in their words)</label><input id="a-bg" placeholder="Raised Catholic, left the church at 20">
+      <label>First thing they asked or said</label><textarea id="a-first" placeholder="Optional — becomes their first open question"></textarea>
+      <div style="margin-top:14px;display:flex;gap:8px"><button class="btn primary" id="a-save">Save &amp; open their page</button><button class="btn quiet" id="a-cancel">Cancel</button></div>
+    </div>
+    <p class="muted small">They get an invite code from you to open the app. Their reading, questions and first steps then show up here.</p>`;
+  const back = () => dashView("people");
+  $("#a-back").addEventListener("click",back); $("#a-cancel").addEventListener("click",back);
+  $("#a-save").addEventListener("click",()=>{
+    const name=$("#a-name").value.trim(); if(!name) return toast("A name first");
+    const p = { id:uid(), name, stage:+$("#a-stage").value, companion:ME, lang:$("#a-lang").value||"English", city:$("#a-city").value, channel:$("#a-channel").value, met:$("#a-met").value, bg:$("#a-bg").value, notes:"", code:code(), created:today(), contacts:[{d:today(),k:"Added",t:"Added to the dashboard."}], questions:[], needs:{}, milestones:{firstContact:today()}, next:{text:"",due:""}, unlocked:[0,1,2,3] };
+    const f=$("#a-first").value.trim(); if(f) p.questions.push({id:uid(),d:today(),q:f,status:"open"});
+    PEOPLE.unshift(p); savePeople(); toast(`${name} added · invite code ${p.code}`); dashView("person",p.id);
+  });
+}
+
+function renderPerson(){
+  const p = personOf(curP); if(!p) return dashView("people");
+  const needs = (NEED_CATALOG[p.stage]||[]);
+  const timeline = [
+    ...p.contacts.map(c=>({d:c.d,k:c.k,t:c.t})),
+    ...p.questions.map(q=>({d:q.d,k:"Question",t:q.q})),
+    ...Object.entries(p.milestones).filter(([,d])=>d).map(([k,d])=>({d,k:"Milestone",t:MILESTONES.find(m=>m[0]===k)?.[1]||k}))
+  ].sort((a,b)=>a.d<b.d?1:-1);
+  const lessons = L.journey.lessons;
+  $("#dv-person").innerHTML = `
+    <button class="btn quiet" id="p-back">‹ All people</button>
+    <div class="top-row" style="margin-top:10px">
+      <div><h1 style="margin:0">${esc(p.name)}</h1><p class="muted" style="margin:2px 0 0">${[p.city,p.lang,p.channel].filter(Boolean).map(esc).join(" · ")} · code <b>${p.code}</b></p></div>
+      <button class="btn sm" id="p-edit">Edit details</button>
+    </div>
+    ${p.bg?`<p class="muted" style="margin-top:8px">${esc(p.bg)}${p.met?` — met: ${esc(p.met)}`:""}</p>`:""}
+
+    <h3>Stage</h3>
+    <div class="stepper">${Object.entries(STAGES).map(([k,v])=>`<button data-stage="${k}" class="${+k===p.stage?'on':+k<p.stage?'done':''}">${v}</button>`).join("")}</div>
+    <p class="muted small">Tap the next stage when it happens — the date is recorded.</p>
+
+    <h3>Next step</h3>
+    <div class="card ${overdue(p)?'attn':''}"><div class="row"><div><label>What</label><input id="n-text" value="${esc(p.next.text)}" placeholder="One concrete thing"></div><div><label>By</label><input id="n-due" type="date" value="${p.next.due||''}"></div></div>
+      <div style="margin-top:10px;display:flex;gap:8px"><button class="btn sm primary" id="n-save">Save</button><button class="btn sm" id="n-done">Done → log it</button></div></div>
+
+    <h3>Log a contact</h3>
+    <div class="card"><div class="row"><div><label>How</label><select id="c-kind">${["Message","Call","In person","Email","Note"].map(k=>`<option>${k}</option>`).join("")}</select></div><div><label>When</label><input id="c-date" type="date" value="${today()}"></div></div>
+      <label>What happened, what they said, what you noticed</label><textarea id="c-note"></textarea>
+      <div style="margin-top:10px"><button class="btn sm primary" id="c-save">Add to timeline</button></div></div>
+
+    <h3>Questions ${openQs(p)?`<span class="badge">${openQs(p)} open</span>`:""}</h3>
+    <div class="card">
+      ${p.questions.length? p.questions.slice().reverse().map(q=>`<div class="qi" data-q="${q.id}">
+        <div class="q">${esc(q.q)} <span class="muted small">· ${rel(q.d)}</span></div>
+        ${q.status==="answered"?`<div class="a">${esc(q.a)}</div><div class="acts"><span class="tag">answered</span>${q.lib?'<span class="tag">in library</span>':`<button class="btn sm" data-lib="${q.id}">Suggest for library</button>`}</div>`
+        :`<div class="acts"><textarea data-ans="${q.id}" placeholder="Your answer, or a note on how you answered in person" style="min-height:50px"></textarea></div><div class="acts"><button class="btn sm primary" data-answer="${q.id}">Mark answered</button></div>`}
+      </div>`).join("") : `<p class="muted">No questions yet.</p>`}
+      <div style="margin-top:12px"><label>Add a question they asked</label><input id="q-new" placeholder="In their words"><div style="margin-top:8px"><button class="btn sm" id="q-add">Add</button></div></div>
+    </div>
+
+    <h3>What they need at this stage</h3>
+    <ul class="needs">${needs.map(([k,label])=>{ const s=p.needs[k]||"todo"; return `<li><span>${label}</span><button class="st ${s}" data-need="${k}">${s==="todo"?"not yet":s==="doing"?"in progress":"done"}</button></li>`; }).join("")}</ul>
+    <p class="muted small">Tap to cycle: not yet → in progress → done.</p>
+
+    <h3>Milestones</h3>
+    <div class="card"><div class="row">${MILESTONES.map(([k,label])=>`<div><label>${label}</label><input type="date" data-ms="${k}" value="${p.milestones[k]||''}"></div>`).join("")}</div></div>
+
+    <h3>First steps they can see in the app</h3>
+    <div class="card">${lessons.map((l,i)=>`<label style="display:flex;gap:10px;align-items:center;margin:6px 0;font-size:14px;color:var(--ink)"><input type="checkbox" data-ul="${i}" ${p.unlocked.includes(i)?'checked':''} style="width:auto"> ${l.t}</label>`).join("")}
+      <p class="muted small" style="margin:8px 0 0">Unlocking is how you pace them. Nothing is hidden forever.</p></div>
+
+    <h3>Private notes</h3>
+    <div class="card"><textarea id="p-notes" placeholder="Only you and the admin see this.">${esc(p.notes)}</textarea><div style="margin-top:8px"><button class="btn sm" id="notes-save">Save notes</button></div></div>
+
+    <h3>Timeline</h3>
+    <ul class="tl">${timeline.map(e=>`<li><span class="d">${e.d}</span><span><span class="k">${esc(e.k)}</span>${esc(e.t)}</span></li>`).join("") || "<li class='muted'>Nothing yet.</li>"}</ul>
+    <p style="margin-top:28px"><button class="btn quiet" id="p-remove" style="color:var(--ink-3)">Remove this person</button></p>`;
+
+  const R = () => { savePeople(); renderPerson(); };
+  $("#p-back").addEventListener("click",()=>dashView("people"));
+  $("#p-edit").addEventListener("click",()=>{ const n=prompt("Name",p.name); if(n===null) return; p.name=n||p.name; p.city=prompt("City",p.city)??p.city; p.channel=prompt("Channel ("+CHANNELS.join(" / ")+")",p.channel)??p.channel; p.bg=prompt("Background",p.bg)??p.bg; R(); });
+  $("#dv-person").querySelectorAll("[data-stage]").forEach(b=>b.addEventListener("click",()=>{ const s=+b.dataset.stage; if(s===p.stage) return; p.stage=s; p.contacts.push({d:today(),k:"Stage",t:`Now: ${STAGES[s]}`}); if(s===3&&!p.milestones.shahada) p.milestones.shahada=today(); R(); toast(`${p.name} → ${STAGES[s]}`); }));
+  $("#n-save").addEventListener("click",()=>{ p.next={text:$("#n-text").value,due:$("#n-due").value}; R(); toast("Saved"); });
+  $("#n-done").addEventListener("click",()=>{ if(!p.next.text) return; p.contacts.push({d:today(),k:"Done",t:p.next.text}); p.next={text:"",due:""}; R(); });
+  $("#c-save").addEventListener("click",()=>{ const t=$("#c-note").value.trim(); if(!t) return toast("Write a line first"); p.contacts.push({d:$("#c-date").value||today(),k:$("#c-kind").value,t}); R(); });
+  $("#q-add").addEventListener("click",()=>{ const q=$("#q-new").value.trim(); if(!q) return; p.questions.push({id:uid(),d:today(),q,status:"open"}); R(); });
+  $("#dv-person").querySelectorAll("[data-answer]").forEach(b=>b.addEventListener("click",()=>{ const q=p.questions.find(x=>x.id===b.dataset.answer); q.a=$(`[data-ans="${q.id}"]`).value.trim()||"Answered in person."; q.status="answered"; R(); }));
+  $("#dv-person").querySelectorAll("[data-lib]").forEach(b=>b.addEventListener("click",()=>{ p.questions.find(x=>x.id===b.dataset.lib).lib=true; inboxAdd(p.questions.find(x=>x.id===b.dataset.lib).q,"library:"+p.companion); R(); toast("Suggested to the team for the library"); }));
+  $("#dv-person").querySelectorAll("[data-need]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.need, s=p.needs[k]||"todo"; p.needs[k]= s==="todo"?"doing":s==="doing"?"done":"todo"; R(); }));
+  $("#dv-person").querySelectorAll("[data-ms]").forEach(i=>i.addEventListener("change",()=>{ p.milestones[i.dataset.ms]=i.value; R(); }));
+  $("#dv-person").querySelectorAll("[data-ul]").forEach(c=>c.addEventListener("change",()=>{ const i=+c.dataset.ul; c.checked? (p.unlocked.includes(i)||p.unlocked.push(i)) : (p.unlocked=p.unlocked.filter(x=>x!==i)); savePeople(); }));
+  $("#notes-save").addEventListener("click",()=>{ p.notes=$("#p-notes").value; savePeople(); toast("Notes saved"); });
+  $("#p-remove").addEventListener("click",()=>{ if(!confirm(`Remove ${p.name} from your list?`)) return; PEOPLE=PEOPLE.filter(x=>x.id!==p.id); savePeople(); dashView("people"); });
+}
+
+function renderTeam(){
+  const inbox = store.get("th.inbox",[]);
+  const byC = COMPANIONS.map(c=>{ const ps=PEOPLE.filter(p=>p.companion===c); return {c, n:ps.length, attn:ps.filter(attention).length, open:ps.reduce((n,p)=>n+openQs(p),0)}; });
+  const allOpen = PEOPLE.flatMap(p=>p.questions.filter(q=>q.status==="open").map(q=>({...q,who:p.name,c:p.companion})));
+  const libSuggest = PEOPLE.flatMap(p=>p.questions.filter(q=>q.lib).map(q=>q.q));
+  const notFound = inbox.filter(i=>i.from!=="companion"&&!i.from.startsWith("library"));
+  $("#dv-team").innerHTML = `
+    <h1>Team &amp; admin</h1>
+    <p class="muted">What the administrator and the whole team see. Companions are added here only.</p>
+    <h3>Companions</h3>
+    <div class="tbl"><table><thead><tr><th>Companion</th><th>People</th><th>Need attention</th><th>Open questions</th></tr></thead>
+      <tbody>${byC.map(r=>`<tr><td>${r.c}${r.c===ME?' <span class="tag">you</span>':''}</td><td>${r.n}</td><td>${r.attn||'—'}</td><td>${r.open||'—'}</td></tr>`).join("")}</tbody></table></div>
+    <div style="margin-top:10px;display:flex;gap:8px;align-items:center"><input id="t-newc" placeholder="Add a companion (admin only)" style="max-width:280px"><button class="btn sm" id="t-addc">Add</button></div>
+
+    <h3>Waiting for a companion</h3>
+    <div class="card"><p class="muted" style="margin:0">People who wrote in through the app without an invite code appear here for the admin to assign. <b>0 waiting.</b></p></div>
+
+    <h3>Unanswered across the team ${allOpen.length?`<span class="badge">${allOpen.length}</span>`:""}</h3>
+    <div class="card">${allOpen.length? allOpen.map(q=>`<div class="qi"><div class="q">${esc(q.q)}</div><div class="muted small">${esc(q.who)} · ${esc(q.c)} · ${rel(q.d)}</div></div>`).join("") : '<p class="muted" style="margin:0">Nothing open. Good.</p>'}</div>
+
+    <h3>Questions people couldn’t find in the library</h3>
+    <p class="muted small">Sent from the “didn’t find it” box and the companion screen. The ones that repeat become new answers.</p>
+    <div class="card">${[...notFound.map(i=>({q:i.q,tag:i.from==="app"?"from the app":"to companion",d:i.d})), ...libSuggest.map(q=>({q,tag:"suggested by a companion"}))].map(i=>`<div class="qi"><div class="q">${esc(i.q)}</div><div class="muted small">${i.tag}${i.d?` · ${rel(i.d)}`:""}</div></div>`).join("") || '<p class="muted" style="margin:0">Nothing yet. Try sending a question from the Questions tab.</p>'}
+      <div class="qi"><div class="q">Can I still celebrate Christmas with my parents?</div><div class="muted small">asked 4× — sample</div></div>
+      <div class="qi" style="border:0"><div class="q">What do I do if I can’t read Arabic yet — is my prayer valid?</div><div class="muted small">asked 3× — sample</div></div></div>
+
+    <h3>Stages across everyone</h3>
+    <div class="kpis">${[1,2,3,4].map(s=>`<div class="kpi"><b>${PEOPLE.filter(p=>p.stage===s).length}</b><span>${STAGES[s]}</span></div>`).join("")}</div>
+    <p class="muted small" style="margin-top:24px">Prototype note: everything here is stored on this device only. <button class="btn quiet sm" id="t-reset" style="color:var(--ink-3)">Reset sample data</button></p>`;
+  $("#t-addc").addEventListener("click",()=>{ const n=$("#t-newc").value.trim(); if(!n) return; COMPANIONS.push(n); renderTeam(); toast(`${n} added as a companion`); });
+  $("#t-reset").addEventListener("click",()=>{ if(!confirm("Reset all people to the sample data?")) return; PEOPLE=seedPeople(); savePeople(); store.set("th.inbox",[]); renderTeam(); toast("Reset"); });
 }
 
 /* boot */
